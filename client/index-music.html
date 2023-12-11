@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+  <h1>Music search</h1>
+
+  <form name="searchForm" onsubmit="search(); return false">
+    <input name="term" placeholder="Search term">
+    <button type="submit">Search</button>
+    <p>
+      Search for:
+      <select name="searchType">
+        <option value="all">All song information</option>
+        <option value="artist">Artistname</option>
+        <option value="album">Albumname</option>
+        <option value="title">Songname</option>
+      </select>
+    </p>
+  </form>
+
+  <article class="searchResults">
+    Search for a song.
+  </article>
+  
+  <script src="main.js"></script>
 </body>
+
 </html>
