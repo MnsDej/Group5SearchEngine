@@ -8,15 +8,24 @@
 </head>
 
 <body>
-<h1>PhotoSearch</h1>
+<h1>Photo Search</h1>
 <form name = "Searchform" onsubmit="search(); return false">
 <input name="term" placeholder="search term">
 <button type="submit">search</button>
 </form>
+<p>
+    Search for:
+    <select name="searchType">
+      <option value="all">All Photo information</option>
+      <option value="Photographer">PhotoName</option>
+      <option value="Location">Location</option>
+      <option value="title">PhotoTitle</option>
+    </select>
+  </p>
 <article class="searchresults">
     Search for a Photo by name or description
 </article>
-<script> src="main-photos.js"</script>
+<script> src="main.js"</script>
 
 
 </body>
