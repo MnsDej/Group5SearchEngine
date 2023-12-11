@@ -3,13 +3,13 @@ async function search() {
     let searchType = document.forms.searchForm.searchType.value;
     console.log(searchType);
     document.forms.searchForm.term.value = '';
-    let rawData = await fetch('/api/music/' + searchTerm + '/' + searchType);
-    let songs = await rawData.json();
+    let allData = await fetch('/api/music/' + searchTerm + '/' + searchType);
+    let Tracks = await allData.json();
     let html = `
       <p>You searched for "${searchTerm}"...</p>
-      <p>Found ${songs.length} songs.</p>
+      <p>Found ${Tracks.length} songs.</p>
     `;
-    for (let song of songs) {
+    for (let song of Tracks) {
       let meta = song.metadata.common;
       html += `
         <section>
