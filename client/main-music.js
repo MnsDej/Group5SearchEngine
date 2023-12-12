@@ -10,7 +10,7 @@ async function search() {
       <p>Found ${Tracks.length} songs.</p>
     `;
     for (let music of Tracks) {
-      let meta = music.metadata.common;
+      let meta = music.music_metadata.common;
       html += `
         <section>
           <h2>${meta.title}</h2>
