@@ -9,8 +9,8 @@ async function search() {
       <p>You searched for "${searchTerm}"...</p>
       <p>Found ${Tracks.length} songs.</p>
     `;
-    for (let song of Tracks) {
-      let meta = song.metadata.common;
+    for (let music of Tracks) {
+      let meta = music.metadata.common;
       html += `
         <section>
           <h2>${meta.title}</h2>
@@ -19,9 +19,9 @@ async function search() {
           <p><b>Release Year:</b> ${meta.year}</p>
           <p><b>Genre:</b> ${meta.genre}</p>  
           <p>
-            <audio controls src="music/${song.fileName}">
+            <audio controls src="music/${music.fileName}">
           </p>
-        </section>
+        </section>  
       `;
     }
     let searchResultsElement = document.querySelector('.searchResults');
