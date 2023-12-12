@@ -20,9 +20,10 @@ async function search () {
     for(let photo of photos) {
         html += `
         <seaction>
-        <h1>${photo.photoSearch}</h1>
+        <h2>${photos.metadata.info.Title}</h2>
         <img src="photos/${photo.meta.photos}">
         <p>${photo.meta.description}</p>
+        
         </seaction>
     
 `;
