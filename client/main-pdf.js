@@ -10,11 +10,12 @@ async function search() {
     <p>Found ${datas.length} results.</p>
   `;
   for (let PDF of datas) {
+      let meta = PDF.pdf_metadata.info
         html += `
             <section>
-                <h2>${PDF.metadata.info.Title}</h2>
-                <p><b>Author:</b> ${PDF.metadata.info.Author}</p>
-                <p><b>Creator:</b> ${PDF.metadata.info.Creator}</p>
+                <h2>${meta.Title}</h2>
+                <p><b>Author:</b> ${meta.Author}</p>
+                <p><b>Creator:</b> ${meta.Creator}</p>
               <p>  
                 <embed src="PDF/${PDF.fileName}">
               </p>
