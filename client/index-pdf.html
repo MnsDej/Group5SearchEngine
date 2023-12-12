@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF serach</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <h1>PDF</h1>
+
+  <form name="searchForm" onsubmit="search(); return false">
+    <input name="term" placeholder="Search term">
+    <button type="submit">Search</button>
+    <p>
+      Search:
+      <select name="searchType">
+        <option value="all">All information </option>
+        <option value="title">Title</option>
+        <option value="Author">Author</option>
+        <option value="Creator">Creator</option>
+      </select>
+    </p>
+  </form>
+
+  <article class="searchResults">
+    Search for a PDF by Author or Creator orall data
+  </article>
+  <script src="main-pdf.js"></script>
+</body>
+
+</html>
