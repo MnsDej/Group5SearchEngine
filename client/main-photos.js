@@ -18,12 +18,13 @@ async function search () {
 
 
     for(let photo of photos) {
-        html += `
+      let meta = photos.Photo_metadata.ISO
+      html += `
         <seaction>
-        <h2>${photos.metadata.info.Title}</h2>
-        <img src="photos/${photo.meta.photos}">
-        <p>${photo.meta.description}</p>
-        
+        <h2>${meta.Title}</h2>
+        <img src="photos/${photo.meta}">
+        <p>${meta.CreateDate}</p>
+
         </seaction>
     
 `;
