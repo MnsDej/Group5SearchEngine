@@ -19,7 +19,7 @@ async function search() {
           <p><b>Release Year:</b> ${meta.year}</p>
           <p><b>Genre:</b> ${meta.genre}</p>  
           <p>
-            <audio controls src="music/${music.fileName}">
+            <audio controls src="music/${music.music_filename}">
           </p>
         </section>  
       `;
