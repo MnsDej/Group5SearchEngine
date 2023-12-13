@@ -5,6 +5,7 @@ async function search() {
     document.forms.searchForm.term.value = '';
     let allData = await fetch('/api/music/' + searchTerm + '/' + searchType);
     let Tracks = await allData.json();
+    console.log("result from server", Tracks)
     let html = `
       <p>You searched for "${searchTerm}"...</p>
       <p>Found ${Tracks.length} songs.</p>

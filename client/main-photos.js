@@ -5,7 +5,7 @@ async function search () {
     console.log(searchType);
     document.forms.searchForm.term.value = '';
 
-    let rawData = await fetch('/api/photos/'+ searchterm);
+    let rawData = await fetch('/api/photos/'+ searchTerm + '/' + searchType);
 
     let photos = await rawData.json();
    
