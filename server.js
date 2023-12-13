@@ -49,7 +49,6 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
     response.json(result);
 });
 
-
 app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 
   let searchTerm = request.params.searchTerm;

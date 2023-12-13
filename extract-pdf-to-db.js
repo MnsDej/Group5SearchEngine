@@ -20,6 +20,10 @@ const files = await fs.readdirSync('client/PDF/');
 for (let file of files) {
  
   let metadata = await pdfParse(fs.readFileSync('client/PDF/' + file));
+
+  // delete metadata.text;
+  
+  metadata.text = metadata.text.slice(0,200); // only keep 200 characters
  
   let result = await query(`
     INSERT INTO PDF (pdf_fileName, pdf_metadata)
