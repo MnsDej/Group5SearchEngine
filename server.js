@@ -76,3 +76,23 @@ app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
   // Send a response to the client
   response.json(result);
 });
+
+// Ny endpoint för att söka efter foton baserat på GPS-koordinater
+app.get('/api/photos/gps/:searchLatitude/:searchLongitude/:searchRadiusKm', async (request, response) => {
+  let searchLatitude = parseFloat(request.params.searchLatitude);
+  let searchLongitude = parseFloat(request.params.searchLongitude);
+  let searchRadiusKm = parseFloat(request.params.searchRadiusKm);
+
+  let sql = `
+    SELECT *,
+           JSON_EXTRACT(Photo_metadata, '$.latitude') AS Latitude,
+           JSON_EXTRACT(Photo_metadata, '$.longitude') AS Longitude
+    FROM photos
+    WHERE JSON_EXTRACT(Photo_metadata, '$.latitude') IS NOT NULL
+      AND JSON_EXTRACT(Photo_metadata, '$.longitude') IS NOT NULL
+      AND SQRT(POW(69.1 * (JSON_EXTRACT(Photo_metadata, '$.latitude') - ?), 2) + POW(69.1 * (? - JSON_EXTRACT(Photo_metadata, '$.longitude')) * COS(JSON_EXTRACT(Photo_metadata, '$.latitude') / 57.3), 2)) < ?;
+  `;
+
+  let result = await query(sql, [searchLatitude, searchLongitude, searchRadiusKm]);
+  response.json(result);
+});
