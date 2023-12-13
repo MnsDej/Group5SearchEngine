@@ -1,36 +1,32 @@
-async function search () {
-
-    let searchterm = document.forms.searchform.term.value;
-    let searchType = document.forms.searchForm.searchType.value;
-    console.log(searchType);
+async function search() {
+  let searchTerm = document.forms.searchForm.term.value;
+  let searchType = document.forms.searchForm.searchType.value;
+  console.log(searchType);
     document.forms.searchForm.term.value = '';
 
-    let rawData = await fetch('/api/photos/'+ searchTerm + '/' + searchType);
+    let allData = await fetch('/api/photos/' + searchTerm + '/' + searchType);
 
-    let photos = await rawData.json();
+    let photos = await allData.json();
    
     let html = `
     <p>You searched for "${searchTerm}"...</p>
-    <p>Found ${photos.description} photos.</p>
+    <p>Found ${photos.length} photos.</p>
   `;
-
-    
 
 
     for(let photo of photos) {
-      let meta = photos.Photo_metadata.ISO
+      let meta = photo.Photo_metadata;
       html += `
-        <seaction>
-        <h2>${meta.Title}</h2>
-        <img src="photos/${photo.meta}">
-        <p>${meta.CreateDate}</p>
+        <section>
+        <h2>${meta.Make}</h2>
+        <img src="photos/${photo.Photo_filename}">
+        <p>${meta.Make}</p>
 
-        </seaction>
+        </section>
     
 `;
 
 }
 let searchResultsElement = document.querySelector('.searchResults');
 searchResultsElement.innerHTML = html;
-
 }

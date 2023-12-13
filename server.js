@@ -31,19 +31,21 @@ async function query(sql, listOfValues) {
 }
 
 app.get('/api/photos/:searchTerm/:searchType', async(request,response) => {
-    let result = await query('SELECT * FROM photos');
+    let search = request.params.searchTerm;
+    let result = await query('SELECT * FROM photos WHERE Photo_metadata LIKE ?', ['%' + search + '%']);
     response.json(result);
 });
 
 
 app.get('/api/pdf', async(request,response) => {
-    let result = await query('SELECT pdf_fileName FROM PDF LIMIT 10');
+    let search = request.params.searchTerm;
+    let result = await query('SELECT pdf_fileName FROM PDF LIMIT 10', ['%' + search + '%']);
     response.json(result);
 });
 
-app.get('/api/pdf/:searchTerm', async(request,response) => {
+app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
-    let result = await query('SELECT pdf_fileName FROM PDF WHERE pdf_metadata LIKE ?', ['%' + search + '%']);
+    let result = await query('SELECT * FROM PDF WHERE pdf_metadata LIKE ?', ['%' + search + '%']);
     response.json(result);
 });
 
