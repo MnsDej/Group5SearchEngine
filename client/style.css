@@ -3,6 +3,11 @@
     width: 200px;
 }
 
+.powerpoint-ppt {
+  width: 200px;
+  height: 258px;
+  border: none; /* equivalent to frameborder="0" */
+}
 
 body {
     font-style: Verdana;

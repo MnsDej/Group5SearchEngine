@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoewrPoint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body> 
+  <h1>PowerPoint search</h1>
+
+  <form name="searchForm" onsubmit="search(); return false;">
+    <input name="term" placeholder="Search term">
+    <button type="submit">search</button>
+    <p>
+      search in:
+      <select name="searchType">
+        <option value="all">All information</option>
+        <option value="title">Name of file</option>
+        <option value="original">Original reference</option>
+        <option value="urlkey">Document</option>
+
+      </select>
+    </p>
+  </form>
+  <article class="searchResults">
+    Search for search Results.
+  </article>
+  <script src="main-powerpoint.js"></script>
+</body>
+
+</html>
