@@ -76,9 +76,19 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
 
 app.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
   let search = request.params.searchTerm;
-  let result = await query('SELECT * FROM PowerPoint WHERE PowerPoint_metadata LIKE ?', ['%' + search + '%']);
+  let type = request.params.searchType;
+  // sql query for all metadata
+  let sql = 'SELECT * FROM PowerPoint WHERE PowerPoint_metadata LIKE ?';
+  if(type != 'All'){
+    sql = `
+     SELECT * 
+     FROM PowerPoint
+     WHERE PowerPoint_metadata LIKE ?`;
+  }
+  let result = await query(sql, ['%' + search + '%']);
   response.json(result);
 });
+
 
 app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 
