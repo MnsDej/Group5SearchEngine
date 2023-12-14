@@ -74,7 +74,7 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
 });
 
 
-app.get('/api/PowerPoint/:searchTerm/:searchType', async(request,response) => {
+app.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
   let search = request.params.searchTerm;
   let result = await query('SELECT * FROM PowerPoint WHERE PowerPoint_metadata LIKE ?', ['%' + search + '%']);
   response.json(result);
