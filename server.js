@@ -58,6 +58,22 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
     response.json(result);
 });
 
+app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
+  let search = request.params.searchTerm;
+  let type = request.params.searchType;
+  // sql query for all metadata
+  let sql = 'SELECT * FROM PDF WHERE pdf_metadata LIKE ?';
+  if(type != 'All'){
+    sql = `
+     SELECT * 
+     FROM PDF 
+     WHERE pdf_metadata -> '$.info.${type}' LIKE ?`;
+  }
+  let result = await query(sql, ['%' + search + '%']);
+  response.json(result);
+});
+
+
 app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 
   let searchTerm = request.params.searchTerm;
