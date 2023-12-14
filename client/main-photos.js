@@ -15,13 +15,10 @@ async function search() {
 
 
     for(let photo of photos) {
-      let meta = photo.Photo_metadata;
       html += `
         <section>
-        <h2>${meta.Make}</h2>
         <img src="photos/${photo.Photo_filename}">
-        <p>${meta.Make}</p>
-
+        <a href="https://maps.google.com/?q=${photo.Photo_metadata.latitude},${photo.Photo_metadata.longitude}" target="_blank"><img src="photos/${photo.Photo_filename}"></a>
         </section>
     
 `;
