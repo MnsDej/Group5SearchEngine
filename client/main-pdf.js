@@ -3,7 +3,7 @@ async function search() {
   let searchType = document.forms.searchForm.searchType.value;
   console.log(searchType);
   document.forms.searchForm.term.value = '';
-  let allData = await fetch('/api/PDF/' + searchTerm + '/' + searchType);
+  let allData = await fetch('/api/pdf/' + searchTerm + '/' + searchType);
   let datas = await allData.json();
   let html = `
     <p>You searched for "${searchTerm}"...</p>
