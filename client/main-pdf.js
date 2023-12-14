@@ -17,7 +17,6 @@ async function search() {
             <section>
                 <h2>${meta.Title}</h2>
                 <p><b>Author:</b> ${meta.Author}</p>
-                <p><b>Creator:</b> ${meta.Creator}</p>
                 <p><b>Date of Publication:</b> ${meta.CreationDate}</p>
               <p>  
                   ${counter <= 3 ? `<embed src="PDF/${PDF.pdf_fileName}" class="pdfView"><br>` : ''}
