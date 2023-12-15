@@ -13,7 +13,7 @@ async function search() {
     let meta = PowerPoint.PowerPoint_metadata;
     html += `
       <section>
-        <h2>${meta.title}</h
+        <h2>${meta.title}</h2>
         <p><b>Company:</b> ${meta.company}</p>
         <p><b>Document:</b> ${meta.urlkey}</p> 
         <a href="powerpoints/${PowerPoint.PowerPoint_fileName}" target="_blank">View the powerpoint...</a>
