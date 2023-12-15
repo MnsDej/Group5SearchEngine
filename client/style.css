@@ -55,3 +55,55 @@ body {
     height: 50vh;
     width: 50vw;
   }
+  
+  .phototext {
+    text-align: center;
+  }
+
+  .backtomain {
+    text-align: center;
+  }
+
+
+  body {
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .firstheader {
+    color: #f1e3e3;
+letter-spacing: .15em;
+font-family: "Impact", fantasy;
+text-shadow: 1px -1px 0 #000000, -1px 2px 1px #1d1d1d, -2px 4px 1px #000000, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px;
+color: #e6caca;
+text-align: center;
+  }
+
+  .new {
+    font-family: "Impact", fantasy;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #d89a8c;
+    font-weight: bold;
+    padding: 20px;
+    border: 4px solid #494949;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    color: white; /* Färgen för normaltillstånd */
+  }
+  
+  .new:hover {
+    background: #d3a99d;
+    border-color: #ff5b2a;
+    color: #ff0000 !important; /* Färgen vid hovring med !important */
+    transition: all 0.4s ease 0s;
+  }
+
+  .photo{
+    text-align: center;
+  }
+
+  .photo2 {
+    text-align: center;
+  }
