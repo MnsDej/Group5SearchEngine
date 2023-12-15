@@ -47,12 +47,12 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
     let type = request.params.searchType;
     // sql query for all metadata
-    let sql = 'SELECT * FROM PDF WHERE pdf_metadata LIKE ?';
+    let sql = 'SELECT * FROM PDF WHERE LOWER(pdf_metadata) LIKE LOWER(?)';
     if(type != 'all'){
       sql = `
        SELECT * 
        FROM PDF 
-       WHERE pdf_metadata -> '$.info.${type}' LIKE ?`;
+       WHERE LOWER(pdf_metadata -> '$.info.${type}') LIKE LOWER(?)`;
     }
     let result = await query(sql, ['%' + search + '%']);
     response.json(result);
