@@ -20,6 +20,9 @@ async function search() {
     for(let photo of photos) {
       html += `
         <section>
+        <p class="phototext"><b>ISO:</b> ${photo.Photo_metadata.ISO}</p>
+        <p class="phototext"><b>Make:</b> ${photo.Photo_metadata.Make}</p>
+        <p class="phototext"><b>Model:</b> ${photo.Photo_metadata.Model}</p>
         <a href="https://maps.google.com/?q=${photo.Photo_metadata.latitude},${photo.Photo_metadata.longitude}" target="_blank"><img src="photos/${photo.Photo_filename}"></a>
         </section>
     
