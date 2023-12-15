@@ -106,4 +106,26 @@ text-align: center;
 
   .photo2 {
     text-align: center;
-  }
+  }/* Additional styles for other elements if needed */
+
+div[style="text-align:center"] {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+}
+
+div[style="text-align:center"] p {
+  margin: 0 10px; /* Adjust the margin between links */
+}
+
+div[style="text-align:center"] a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d71542ad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+div[style="text-align:center"] a:hover {
+  background-color: #e80e9f;
+}
