@@ -1,17 +1,20 @@
 async function search() {
-  let searchTerm = document.forms.searchForm.term.value;
-  let searchType = document.forms.searchForm.searchType.value;
-  console.log(searchType);
-    document.forms.searchForm.term.value = '';
+ //let searchTerm = document.forms.searchForm.term.value;
+ // let searchType = document.forms.searchForm.searchType.value;
+  //console.log(searchType);
+    //document.forms.searchForm.term.value = '';
 
-    let allData = await fetch('/api/photos/' + searchTerm + '/' + searchType);
+    // let allData = await fetch('/api/photos/' + searchTerm + '/' + searchType);
+    let allData = await fetch('/api/photos');
 
     let photos = await allData.json();
    
-    let html = `
-    <p>You searched for "${searchTerm}"...</p>
-    <p>Found ${photos.length} photos.</p>
-  `;
+   // let html = `
+  //  <p>You searched for "${searchTerm}"...</p>
+  //  <p>Found ${photos.length} photos.</p>
+  //`;
+
+  let html = '';
 
 
     for(let photo of photos) {
@@ -26,3 +29,6 @@ async function search() {
 let searchResultsElement = document.querySelector('.searchResults');
 searchResultsElement.innerHTML = html;
 }
+
+// RUN DIRECTLY
+search();
