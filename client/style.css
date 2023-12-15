@@ -30,12 +30,15 @@ body {
     color: rgb(106, 131, 33);
   }
   h2 {
-    color: rgb(115, 7, 124);
+    color: rgb(255, 255, 255);
   }
   
  
   h1 {
-    color: rgb(93, 6, 243);
+    color: #f1e3e3;
+    font-family: "Impact", fantasy;
+    text-shadow: 1px -1px 0 #000000, -1px 2px 1px #1d1d1d,-2px 4px 1px #000000,-3px 6px 1px #787777;
+    
   }
   
   input {
