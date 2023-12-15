@@ -32,7 +32,7 @@ async function query(sql, listOfValues) {
 
 app.get('/api/photos/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
-    let result = await query('SELECT * FROM photos WHERE Photo_metadata LIKE ?', ['%' + search + '%']);
+    let result = await query('SELECT * FROM photos WHERE LOWER (Photo_metadata) LIKE LOWER(?)', ['%' + search + '%']);
     response.json(result);
 });
 
