@@ -15,6 +15,7 @@ async function search() {
       <section>
         <h2>${meta.title}</h2>
         <p><b>Company:</b> ${meta.company}</p>
+        <p><b>Creation Date:</b> ${meta.creation_date.split('T')[0]}</p> 
         <p><b>Document:</b> ${meta.urlkey}</p> 
         <a href="powerpoints/${PowerPoint.PowerPoint_fileName}" target="_blank">View the powerpoint...</a>
       </section>
