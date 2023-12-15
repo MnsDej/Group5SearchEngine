@@ -52,8 +52,8 @@ body {
   }
 
   #map {
-    height: 50vh;
     width: 50vw;
+    width: 99vw;
   }
   
   .phototext {
