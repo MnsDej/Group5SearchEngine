@@ -6,13 +6,12 @@ import express from 'express';
 import mysql from 'mysql2/promise';
 
 // Create a web server named app
-const app = express();
+const server = express();
 
-app.use(express.static('client'));
+server.use(express.static('client'));
 
 
-app.listen(3000, () =>
-  console.log('Listening on http://localhost:3000'));
+server.listen(5173, () => console.log('Listening on http://localhost:5173'));
 
 
 
@@ -30,20 +29,20 @@ async function query(sql, listOfValues) {
   return result[0];
 }
 
-app.get('/api/photos/:searchTerm/:searchType', async(request,response) => {
+server.get('/api/photos/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
     let result = await query('SELECT * FROM photos WHERE LOWER (Photo_metadata) LIKE LOWER(?)', ['%' + search + '%']);
     response.json(result);
 });
 
 
-app.get('/api/pdf', async(request,response) => {
+server.get('/api/pdf', async(request,response) => {
     let search = request.params.searchTerm;
     let result = await query('SELECT pdf_fileName FROM PDF LIMIT 10', ['%' + search + '%']);
     response.json(result);
 });
 
-app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
+server.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
     let type = request.params.searchType;
     // sql query for all metadata
@@ -59,7 +58,7 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
 });
 
 
-app.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
+server.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
   let search = request.params.searchTerm;
   let searchType = request.params.searchType;
   // sql query for all metadata
@@ -75,7 +74,7 @@ app.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
 });
 
 
-app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
+server.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 
   let searchTerm = request.params.searchTerm;
  
@@ -104,7 +103,7 @@ app.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 });
 
 // Ny endpoint för att söka efter foton baserat på GPS-koordinater
-app.get('/api/photos/gps/:searchLatitude/:searchLongitude/:searchRadiusKm', async (request, response) => {
+server.get('/api/photos/gps/:searchLatitude/:searchLongitude/:searchRadiusKm', async (request, response) => {
   let searchLatitude = parseFloat(request.params.searchLatitude);
   let searchLongitude = parseFloat(request.params.searchLongitude);
   let searchRadiusKm = parseFloat(request.params.searchRadiusKm);
@@ -120,5 +119,18 @@ app.get('/api/photos/gps/:searchLatitude/:searchLongitude/:searchRadiusKm', asyn
   `;
 
   let result = await query(sql, [searchLatitude, searchLongitude, searchRadiusKm]);
+  response.json(result);
+});
+
+server.get('/api/map-photos-search/:latitude/:longitude/:radius', async (request, response) => {
+  let latitude = request.params.latitude;
+  let longitude = request.params.longitude;
+  let radius = request.params.radius;
+  console.log("I GOT", latitude, longitude,radius)
+  let result = await query(`
+    SELECT * FROM (
+      SELECT *,(((acos(sin((?*pi()/180)) * sin((Photo_metadata -> '$.latitude' *pi()/180))+cos((?*pi()/180)) * cos((Photo_metadata -> '$.latitude' * pi()/180)) * cos(((? - Photo_metadata -> '$.longitude')*pi()/180))))*180/pi())*60*1.1515*1.609344) as distance FROM photos) AS subquery
+    WHERE distance <= ?
+  `, [latitude, latitude, longitude, radius]);
   response.json(result);
 });
