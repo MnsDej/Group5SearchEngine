@@ -15,6 +15,10 @@ async function search() {
       <section>
         <h2>${meta.title}</h2>
         <p><b>Company:</b> ${meta.company}</p>
+<<<<<<< HEAD
+=======
+        <p><b>Document:</b> ${meta.urlkey}</p> 
+>>>>>>> 92a71709766516be474c0fda68bf921139aa90c6
         <a href="powerpoints/${PowerPoint.PowerPoint_fileName}" target="_blank">View the powerpoint...</a>
       </section>
     `;
