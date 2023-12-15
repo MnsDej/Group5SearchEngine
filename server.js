@@ -29,6 +29,11 @@ async function query(sql, listOfValues) {
   return result[0];
 }
 
+server.get('/api/photos', async (request, response) => {
+  let result = await query('SELECT * FROM photos');
+  response.json(result);
+});
+
 server.get('/api/photos/:searchTerm/:searchType', async(request,response) => {
     let search = request.params.searchTerm;
     let result = await query('SELECT * FROM photos WHERE LOWER (Photo_metadata) LIKE LOWER(?)', ['%' + search + '%']);
@@ -103,7 +108,7 @@ server.get('/api/music/:searchTerm/:searchType', async (request, response) => {
 });
 
 // Ny endpoint för att söka efter foton baserat på GPS-koordinater
-server.get('/api/photos/gps/:searchLatitude/:searchLongitude/:searchRadiusKm', async (request, response) => {
+server.get('/api/photos-gps/:searchLatitude/:searchLongitude/:searchRadiusKm', async (request, response) => {
   let searchLatitude = parseFloat(request.params.searchLatitude);
   let searchLongitude = parseFloat(request.params.searchLongitude);
   let searchRadiusKm = parseFloat(request.params.searchRadiusKm);
