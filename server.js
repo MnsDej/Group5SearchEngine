@@ -61,14 +61,14 @@ app.get('/api/pdf/:searchTerm/:searchType', async(request,response) => {
 
 app.get('/api/powerpoint/:searchTerm/:searchType', async(request,response) => {
   let search = request.params.searchTerm;
-  let type = request.params.searchType;
+  let searchType = request.params.searchType;
   // sql query for all metadata
-  let sql = 'SELECT * FROM PowerPoint WHERE PowerPoint_metadata LIKE ?';
-  if(type != 'All'){
+  let sql = 'SELECT * FROM PowerPoint WHERE LOWER(PowerPoint_metadata) LIKE LOWER(?)';
+  if(searchType != 'all'){
     sql = `
      SELECT * 
      FROM PowerPoint
-     WHERE PowerPoint_metadata LIKE ?`;
+     WHERE  LOWER(PowerPoint_metadata -> '$.${searchType}') LIKE LOWER(?)`;
   }
   let result = await query(sql, ['%' + search + '%']);
   response.json(result);
