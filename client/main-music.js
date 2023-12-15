@@ -8,7 +8,7 @@ async function search() {
     console.log("result from server", Tracks)
     let html = `
       <p>You searched for "${searchTerm}"...</p>
-      <p>Found ${Tracks.length} songs.</p>
+      <p>Found ${Tracks.length} results.</p>
     `;
     for (let music of Tracks) {
       let meta = music.music_metadata.common;
