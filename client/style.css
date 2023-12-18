@@ -113,15 +113,20 @@ text-align: center;
 
   .photo2 {
     text-align: center;
-  }/* Additional styles for other elements if needed */
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px -1px 0 white;
+  }
 
 div[style="text-align:center"] {
   display: flex;
-  justify-content: center; /* Center the items horizontally */
+  justify-content: center; 
 }
 
 div[style="text-align:center"] p {
-  margin: 0 10px; /* Adjust the margin between links */
+  margin: 0 10px; 
 }
 
 div[style="text-align:center"] a {
