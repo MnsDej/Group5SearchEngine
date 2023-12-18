@@ -6,7 +6,7 @@ async function search() {
   let rawData = await fetch('/api/powerpoint/' + searchTerm + '/' + searchType);
   let powerpoints = await rawData.json();
   let html = `
-    <p>You search for "${searchTerm}"...</p>
+    <p>You searched for "${searchTerm}"...</p>
     <p>You found ${powerpoints.length} results.</p>
   `;
   for (let PowerPoint of powerpoints) {
