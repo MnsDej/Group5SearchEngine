@@ -80,12 +80,13 @@ body {
 
   .firstheader {
     color: #f1e3e3;
-letter-spacing: .15em;
-font-family: "Impact", fantasy;
-text-shadow: 1px -1px 0 #000000, -1px 2px 1px #1d1d1d, -2px 4px 1px #000000, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px;
-color: #e6caca;
-text-align: center;
-margin-top: 230px;
+  letter-spacing: .15em;
+  font-family: "Impact", fantasy;
+  text-shadow: 1px -1px 0 #000000, -1px 2px 1px #1d1d1d, -2px 4px 1px #000000, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px;
+  color: #e6caca;
+  text-align: center;
+  margin-top: 230px;
+  font-size: 40px;
   }
 
   .new {
@@ -98,13 +99,13 @@ margin-top: 230px;
     border: 4px solid #494949;
     display: inline-block;
     transition: all 0.4s ease 0s;
-    color: white; /* Färgen för normaltillstånd */
+    color: white; 
   }
   
   .new:hover {
     background: #d3a99d;
     border-color: #ff5b2a;
-    color: #ff0000 !important; /* Färgen vid hovring med !important */
+    color: #ff0000 !important;
     transition: all 0.4s ease 0s;
   }
 
