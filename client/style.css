@@ -52,6 +52,10 @@ body {
   
   .searchResults {
     margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px -1px 0 white;
   }
 
   #map {
@@ -132,3 +136,35 @@ div[style="text-align:center"] a {
 div[style="text-align:center"] a:hover {
   background-color: #e80e9f;
 }
+
+
+.search-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  text-shadow: 1px -1px 0 white;
+}
+
+.back {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 13px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: background .3s ease, color .3s ease;
+  background: #fff;
+  border-color: #e8e8e8;
+  color: #000;
+  line-height: 25px;
+  font-size: 15px;
+  border: none;
+  text-decoration: none;
+}
+
+.back:hover {
+  background: #ffffff;
+  color: #e16767;
+}
+
+
+
