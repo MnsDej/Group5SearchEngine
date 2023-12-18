@@ -85,6 +85,7 @@ font-family: "Impact", fantasy;
 text-shadow: 1px -1px 0 #000000, -1px 2px 1px #1d1d1d, -2px 4px 1px #000000, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px;
 color: #e6caca;
 text-align: center;
+margin-top: 230px;
   }
 
   .new {
@@ -136,6 +137,7 @@ div[style="text-align:center"] a {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+  margin-top: 20px;
 }
 
 div[style="text-align:center"] a:hover {
