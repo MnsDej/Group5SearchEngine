@@ -157,7 +157,7 @@ div[style="text-align:center"] a:hover {
 .back {
   font-weight: bold;
   cursor: pointer;
-  padding: 0 13px;
+  padding: 5px;
   border-radius: 7px;
   border: 1px solid transparent;
   transition: background .3s ease, color .3s ease;
@@ -165,9 +165,10 @@ div[style="text-align:center"] a:hover {
   border-color: #e8e8e8;
   color: #000;
   line-height: 25px;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
 }
 
 .back:hover {
